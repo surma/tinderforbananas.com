@@ -31,6 +31,7 @@
     const next = document.querySelector('.item--next');
     const topR = top.getBoundingClientRect();
     next.classList.remove('hidden');
+    next.style.top = `${topR.top}px`;
     next.style.width = `${topR.width}px`;
     next.style.height = `${topR.height}px`;
   }

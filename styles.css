@@ -14,6 +14,7 @@
   --app__item__details__padding: calc(32 / var(--device__height));
   --app__header__margin: calc(48 / var(--device__height));
   --app__control__padding: calc(32 / var(--device__height));
+  --app__control__line: calc(8 / var(--device__height));
   --app__action__padding: calc(32 / var(--device__height));
   --app__action__border: calc(10 / var(--device__height));
   --app__action__size: calc(72 / var(--device__height));
@@ -30,6 +31,7 @@
   --app__action--nope__color: hsla(10, 100%, 60%, 1);
   --app__action--like__color: hsla(130, 100%, 35%, 1);
   --app__action--superlike__color: hsla(200, 100%, 50%, 1);
+  --app__control--undo__color: hsla(45, 100%, 50%, 1);
 }
 * {
   box-sizing: border-box;
@@ -174,6 +176,12 @@ body {
   border: 0;
   padding: 0;
 }
+.tinderforbananas .control svg {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-width: calc(var(--app__control__line) * 100vh);
+}
 .tinderforbananas .control.control--big {
   width: calc(var(--app__control--big__size) * 100vh);
   height: calc(var(--app__control--big__size) * 100vh);
@@ -182,3 +190,19 @@ body {
   width: calc(var(--app__control--small__size) * 100vh);
   height: calc(var(--app__control--small__size) * 100vh);
 } 
+.tinderforbananas .control.control--nope svg {
+  stroke: var(--app__action--nope__color);
+  fill: var(--app__action--nope__color);
+}
+.tinderforbananas .control.control--like svg {
+  stroke: var(--app__action--like__color);
+  fill: var(--app__action--like__color);
+}
+.tinderforbananas .control.control--superlike svg {
+  stroke: var(--app__action--superlike__color);
+  fill: var(--app__action--superlike__color);
+}
+.tinderforbananas .control.control--undo svg {
+  stroke: var(--app__control--undo__color);
+  fill: var(--app__control--undo__color);
+}

@@ -59,14 +59,22 @@
   function showDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
-    details.data = top.data;
+    details.querySelector('tinderforbananas-details').data = swipelist.querySelector('.item--top').data;
     requestAnimationFramePromise()
       .then(_ => {
         swipelist.classList.add('hidden');
         details.classList.remove('hidden');
-        for(var i = 0; i < 1000; i++)
-          details.querySelector('tinderforbananas-details').textContent += 'asdfasdfasdf ';
-      })
+      });
+  }
+
+  function hideDetails(event) {
+    const swipelist = document.querySelector('.view--swipelist');
+    const details = document.querySelector('.view--details');
+    requestAnimationFramePromise()
+      .then(_ => {
+        swipelist.classList.remove('hidden');
+        details.classList.add('hidden');
+      });
   }
 
   function copyControls() {
@@ -80,10 +88,12 @@
   function init() {
     const top = document.querySelector('.item--top');
     top.data = dataProvider.next().value;
-    const next = document.querySelector('.item--next');
-    next.data = dataProvider.next().value;
     top.addEventListener('swipe', updateCards);
     top.addEventListener('details', showDetails);
+    const next = document.querySelector('.item--next');
+    next.data = dataProvider.next().value;
+    const details = document.querySelector('tinderforbananas-details');
+    details.addEventListener('dismiss', hideDetails);
     copyControls();
     adjustNextItem();
     window.addEventListener('resize', adjustNextItem);

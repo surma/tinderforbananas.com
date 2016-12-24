@@ -5,9 +5,11 @@ customElements.define('tinderforbananas-details', class extends HTMLElement {
 
   constructor() {
     super();
+    this._carousel = this.querySelector('tinderforbananas-carousel');
   }
 
   connectedCallback() {
+    this._carousel.addEventListener('click', _ => this.dispatchEvent(new CustomEvent('dismiss')));
   }
 
   get data() {
@@ -20,6 +22,8 @@ customElements.define('tinderforbananas-details', class extends HTMLElement {
   }
 
   _updateBindings() {
+    if(!this.data) return;
+    this.querySelector('tinderforbananas-carousel').style.backgroundImage = `url(${this.data.image})`;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

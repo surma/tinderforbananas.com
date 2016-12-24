@@ -29,9 +29,10 @@
   --app__control__color: hsla(0, 0%, 100%, 1);
   --app__shadow: 0 4px 4px hsla(0, 0%, 0%, 0.05);
   --app__action--nope__color: hsla(10, 100%, 60%, 1);
-  --app__action--like__color: hsla(130, 100%, 35%, 1);
+  --app__action--like__color: hsla(170, 100%, 45%, 1);;
   --app__action--superlike__color: hsla(200, 100%, 50%, 1);
   --app__control--undo__color: hsla(45, 100%, 50%, 1);
+  --app__details__control__background: linear-gradient(0deg, hsla(0, 0%, 100%, 1), hsla(0, 0%, 100%, 0.5) 70%, hsla(0, 0%, 100%, 0));
 }
 * {
   box-sizing: border-box;
@@ -86,11 +87,6 @@ body {
 }
 .tinderforbananas .view {
   flex-grow: 1;
-}
-.tinderforbananas .view--details {
-  display: none;
-}
-.tinderforbananas .view--swipelist {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -159,15 +155,22 @@ body {
 .tinderforbananas .view--swipelist .item--next {
   position: absolute;
 }
-.tinderforbananas .view--swipelist .item--invisible {
-  display: none;
+.hidden {
+  display: none !important;
 }
-.tinderforbananas .view--swipelist__controls {
+.tinderforbananas .view--swipelist__controls,
+.tinderforbananas .view--details__controls {
   padding: calc(var(--app__control__padding) * 100vh);
 
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.tinderforbananas .view--details__controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: var(--app__details__control__background);
 }
 .tinderforbananas .control {
   border-radius: 50%;
@@ -181,28 +184,46 @@ body {
   height: 100%;
   stroke-linecap: round;
   stroke-width: calc(var(--app__control__line) * 100vh);
+  stroke-linejoin: round;
 }
-.tinderforbananas .control.control--big {
+.tinderforbananas .control--big {
   width: calc(var(--app__control--big__size) * 100vh);
   height: calc(var(--app__control--big__size) * 100vh);
 }
-.tinderforbananas .control.control--small {
+.tinderforbananas .control--small {
   width: calc(var(--app__control--small__size) * 100vh);
   height: calc(var(--app__control--small__size) * 100vh);
 } 
-.tinderforbananas .control.control--nope svg {
+.tinderforbananas .control--nope svg {
   stroke: var(--app__action--nope__color);
   fill: var(--app__action--nope__color);
 }
-.tinderforbananas .control.control--like svg {
+.tinderforbananas .control--like svg {
   stroke: var(--app__action--like__color);
   fill: var(--app__action--like__color);
 }
-.tinderforbananas .control.control--superlike svg {
+.tinderforbananas .control--superlike svg {
   stroke: var(--app__action--superlike__color);
   fill: var(--app__action--superlike__color);
 }
-.tinderforbananas .control.control--undo svg {
+.tinderforbananas .control--undo svg {
   stroke: var(--app__control--undo__color);
   fill: var(--app__control--undo__color);
+}
+.tinderforbananas .control--inverted svg {
+  stroke: var(--app__control__color);
+  fill: var(--app__control__color);
+}
+.tinderforbananas .control--inverted.control--like {
+  background-color: var(--app__action--like__color);
+}
+.tinderforbananas .control--inverted.control--nope {
+  background-color: var(--app__action--nope__color);
+}
+.tinderforbananas .control--inverted.control--superlike {
+  background-color: var(--app__action--superlike__color);
+}
+tinderforbananas-details {
+  flex-grow: 1;
+  overflow-y: auto;
 }

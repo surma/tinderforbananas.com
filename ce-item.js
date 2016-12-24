@@ -67,6 +67,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     if (deltaX < -this._gBCR.width / 2) return this.nope();
     if (deltaX > this._gBCR.width / 2) return this.like();
     if (deltaY < -this._gBCR.height / 2) return this.superlike();
+    if (deltaX === 0 && deltaY === 0) return this.dispatchEvent(new CustomEvent('details', {detail: this.data}));
     return this._animate('initial');
   }
 

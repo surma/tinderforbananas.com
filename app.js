@@ -56,7 +56,6 @@
   }
 
   function showDetails(event) {
-    console.log('showing details')
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
     details.data = top.data;

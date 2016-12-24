@@ -4,107 +4,105 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
-<div class="device">
-  <main class="tinderforbananas">
-    <header>
-    </header>
-    <section class="view view--swipelist">
-      <tinderforbananas-item class="item item--next hidden" inmovable>
-        <picture>
-        </picture>
-        <div class="item__details">
-          <span class="item__details__name"></span> <span class="item__details__age"></span>
-          <span class="item__details__job"></span>
-        </div>
-      </tinderforbananas-item>
-      <tinderforbananas-item class="item item--top">
-        <picture>
-          <div class="action action--nope">Nope</div>
-          <div class="action action--like">Like</div>
-          <div class="action action--superlike">Super<br>Like</div>
-        </picture>
-        <div class="item__details">
-          <span class="item__details__name"></span> <span class="item__details__age"></span>
-          <span class="item__details__job"></span>
-        </div>
-      </tinderforbananas-item>
-      <nav class="view--swipelist__controls">
-        <button class="control control--small control--undo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
-            <path fill="none" d="
-              M -15 0 
-              A 15 15 0 1 0 0 -15
-            " />
-            <path d="
-              M 0 -15
-              L 0 -20
-              L -10 -15
-              L 0 -10
-              z
-            " />
-          </svg>
+<main class="tinderforbananas">
+  <header>
+  </header>
+  <section class="view view--swipelist">
+    <tinderforbananas-item class="item item--next hidden" inmovable>
+      <picture>
+      </picture>
+      <div class="item__details">
+        <span class="item__details__name"></span> <span class="item__details__age"></span>
+        <span class="item__details__job"></span>
+      </div>
+    </tinderforbananas-item>
+    <tinderforbananas-item class="item item--top">
+      <picture>
+        <div class="action action--nope">Nope</div>
+        <div class="action action--like">Like</div>
+        <div class="action action--superlike">Super<br>Like</div>
+      </picture>
+      <div class="item__details">
+        <span class="item__details__name"></span> <span class="item__details__age"></span>
+        <span class="item__details__job"></span>
+      </div>
+    </tinderforbananas-item>
+    <nav class="view--swipelist__controls">
+      <button class="control control--small control--undo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
+          <path fill="none" d="
+            M -15 0 
+            A 15 15 0 1 0 0 -15
+          " />
+          <path d="
+            M 0 -15
+            L 0 -20
+            L -10 -15
+            L 0 -10
+            z
+          " />
+        </svg>
+      </button>
+      <button class="control control--big control--nope">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
+          <line x1="-15" y1="-15" x2="15" y2="15" />
+          <line x1="15" y1="-15" x2="-15" y2="15" />
+        </svg>
+      </button>
+      <button class="control control--big control--like">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 90" preserveAspectRatio="xMidYMid meet">
+          <path d="
+            M 0 15 
+            L -15 0 
+            A 10 10 0 1 1 0 -10 
+            A 10 10 0 1 1 15 0 
+            L 15 0 
+            z
+          " />
+        </svg>
+      </button>
+      <button class="control control--small control--superlike">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
+          <path  d="
+            M 0.000 10.000
+            L 11.756 16.180
+            L 9.511 3.090
+            L 19.021 -6.180
+            L 5.878 -8.090
+            L 0.000 -20.000
+            L -5.878 -8.090
+            L -19.021 -6.180
+            L -9.511 3.090
+            L -11.756 16.1805
+            z
+          " />
+        </svg>
+      </button>
+    </nav>
+  </section>
+  <section class="view view--details hidden">
+    <tinderforbananas-details>
+      <tinderforbanans-carousel>
+      </tinderforbanans-carousel>
+      <section class="details">
+        <span class="details__name"></span>
+        <span class="details__age"></span>
+        <span class="details__job"></span>
+        <span class="details__distance"></span>
+      </section>
+      <section class="description">
+      </section>
+    </tinderforbananas-details>
+    <nav class="view--details__controls">
+        <button class="control control--big control--nope control--inverted">
         </button>
-        <button class="control control--big control--nope">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
-            <line x1="-15" y1="-15" x2="15" y2="15" />
-            <line x1="15" y1="-15" x2="-15" y2="15" />
-          </svg>
+        <button class="control control--big control--superlike control--inverted">
         </button>
-        <button class="control control--big control--like">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 90" preserveAspectRatio="xMidYMid meet">
-            <path d="
-              M 0 15 
-              L -15 0 
-              A 10 10 0 1 1 0 -10 
-              A 10 10 0 1 1 15 0 
-              L 15 0 
-              z
-            " />
-          </svg>
-        </button>
-        <button class="control control--small control--superlike">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
-            <path  d="
-              M 0.000 10.000
-              L 11.756 16.180
-              L 9.511 3.090
-              L 19.021 -6.180
-              L 5.878 -8.090
-              L 0.000 -20.000
-              L -5.878 -8.090
-              L -19.021 -6.180
-              L -9.511 3.090
-              L -11.756 16.1805
-              z
-            " />
-          </svg>
+        <button class="control control--big control--like control--inverted">
         </button>
       </nav>
-    </section>
-    <section class="view view--details hidden">
-      <tinderforbananas-details>
-        <tinderforbanans-carousel>
-        </tinderforbanans-carousel>
-        <section class="details">
-          <span class="details__name"></span>
-          <span class="details__age"></span>
-          <span class="details__job"></span>
-          <span class="details__distance"></span>
-        </section>
-        <section class="description">
-        </section>
-      </tinderforbananas-details>
-      <nav class="view--details__controls">
-          <button class="control control--big control--nope control--inverted">
-          </button>
-          <button class="control control--big control--superlike control--inverted">
-          </button>
-          <button class="control control--big control--like control--inverted">
-          </button>
-        </nav>
-    </section>
-  </main>
-</div>
+  </section>
+</main>
 
 <script src="helper.js" defer></script>
 <script src="ce-item.js" defer></script>

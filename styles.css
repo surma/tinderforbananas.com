@@ -1,6 +1,6 @@
 :root {
   --device__width: 1080;
-  --device__height: 1920;
+  --device__height: 1700;
   --device__aspect-ratio: calc(var(--device__width) / var(--device__height));
   --device__top-bar__height: calc(64 / var(--device__height));
   --device__bottom-bar__height: calc(128 / var(--device__height));
@@ -14,7 +14,7 @@
   --app__item__details__padding: calc(32 / var(--device__height));
   --app__header__margin: calc(48 / var(--device__height));
   --app__control__padding: calc(32 / var(--device__height));
-  --app__control__line: calc(8 / var(--device__height));
+  --app__control__line: calc(16 / var(--device__height));
   --app__action__padding: calc(32 / var(--device__height));
   --app__action__border: calc(10 / var(--device__height));
   --app__action__size: calc(72 / var(--device__height));
@@ -50,36 +50,18 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: calc(var(--app__font__size) * 100vh);
 }
-.device {
+.tinderforbananas {
+  display: flex;
   height: 100vh;
   width: calc(var(--device__aspect-ratio) * 100vh);
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-.device:before {
-  content: '';
-  display: block;
-  background-color: black;
-  height: calc(var(--device__top-bar__height) * 100vh);
-}
-.device:after {
-  content: '';
-  display: block;
-  background-color: black;
-  height: calc(var(--device__bottom-bar__height) * 100vh);
-}
-.tinderforbananas {
-  flex-grow: 1;
-  display: flex;
+  max-width: calc(var(--device__aspect-ratio) * 100vh);
   flex-direction: column;
   background-color: var(--app__background__color);
   
   overflow: hidden;
 }
 .tinderforbananas header {
+  flex-shrink: 0;
   height: calc(var(--app__header__height) * 100vh);
   background-color: var(--app__header__color);
   box-shadow: var(--app__shadow);
@@ -165,6 +147,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.tinderforbananas .view--details {
+  position: relative;
+  margin-top: calc(var(--app__header__margin) * -100vh);
 }
 .tinderforbananas .view--details__controls {
   position: absolute;

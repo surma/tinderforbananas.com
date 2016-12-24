@@ -1,0 +1,184 @@
+:root {
+  --device__width: 1080;
+  --device__height: 1920;
+  --device__aspect-ratio: calc(var(--device__width) / var(--device__height));
+  --device__top-bar__height: calc(64 / var(--device__height));
+  --device__bottom-bar__height: calc(128 / var(--device__height));
+  --app__header__height: calc(144 / var(--device__height));
+  --app__control--big__size: calc(192 / var(--device__height));
+  --app__control--small__size: calc(128 / var(--device__height));
+
+  --app__item__radius: calc(32 / var(--device__height));
+
+  --app__item__margin: calc(32 / var(--device__height));
+  --app__item__details__padding: calc(32 / var(--device__height));
+  --app__header__margin: calc(48 / var(--device__height));
+  --app__control__padding: calc(32 / var(--device__height));
+  --app__action__padding: calc(32 / var(--device__height));
+  --app__action__border: calc(10 / var(--device__height));
+  --app__action__size: calc(72 / var(--device__height));
+  --app__action__offset: calc(96 / var(--device__height));
+  --app__action__rotation: 15deg;
+  --app__font__size: calc(48 / var(--device__height));
+}
+:root {
+  --app__background__color: hsla(0, 0%, 95%, 1);
+  --app__header__color: hsla(0, 0%, 100%, 1);
+  --app__item__color: hsla(0, 0%, 100%, 1);
+  --app__control__color: hsla(0, 0%, 100%, 1);
+  --app__shadow: 0 4px 4px hsla(0, 0%, 0%, 0.05);
+  --app__action--nope__color: hsla(10, 100%, 60%, 1);
+  --app__action--like__color: hsla(130, 100%, 35%, 1);
+  --app__action--superlike__color: hsla(200, 100%, 50%, 1);
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: calc(var(--app__font__size) * 100vh);
+}
+.device {
+  height: 100vh;
+  width: calc(var(--device__aspect-ratio) * 100vh);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.device:before {
+  content: '';
+  display: block;
+  background-color: black;
+  height: calc(var(--device__top-bar__height) * 100vh);
+}
+.device:after {
+  content: '';
+  display: block;
+  background-color: black;
+  height: calc(var(--device__bottom-bar__height) * 100vh);
+}
+.tinderforbananas {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--app__background__color);
+  
+  overflow: hidden;
+}
+.tinderforbananas header {
+  height: calc(var(--app__header__height) * 100vh);
+  background-color: var(--app__header__color);
+  box-shadow: var(--app__shadow);
+  margin-bottom: calc(var(--app__header__margin) * 100vh);
+}
+.tinderforbananas .view {
+  flex-grow: 1;
+}
+.tinderforbananas .view--details {
+  display: none;
+}
+.tinderforbananas .view--swipelist {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tinderforbananas .view--swipelist .item {
+  border-radius: calc(var(--app__item__radius) * 100vh);
+  flex-grow: 1;
+  background-color: var(--app__item__color);
+  margin: 0 calc(var(--app__item__margin) * 100vh);
+  box-shadow: var(--app__shadow);
+  will-change: transform;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tinderforbananas .view--swipelist .item picture {
+  position: relative;
+  width: 100%;
+  flex-grow: 0;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.tinderforbananas .view--swipelist .item .item__details {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; 
+  padding: calc(var(--app__item__details__padding) * 100vh);
+}
+.tinderforbananas .view--swipelist .item .action {
+  position: absolute;
+  font-size: calc(var(--app__action__size) * 100vh);
+  text-transform: uppercase;
+  border: calc(var(--app__action__border) * 100vh) solid black;
+  border-radius: calc(var(--app__action__border) * 100vh);
+  padding: calc(var(--app__action__padding) * 100vh / 2) calc(var(--app__action__padding) * 100vh);
+  text-align: center;
+  transform-origin: 50% 50%;
+  will-change: opacity;
+  opacity: 0;
+}
+.tinderforbananas .view--swipelist .item .action--nope {
+  right: calc(var(--app__action__offset) * 100vh);
+  top: calc(var(--app__action__offset) * 100vh);
+  color: var(--app__action--nope__color);
+  border-color: var(--app__action--nope__color);
+  transform: rotate(calc(var(--app__action__rotation) * 1));
+}
+.tinderforbananas .view--swipelist .item .action--like {
+  left: calc(var(--app__action__offset) * 100vh);
+  top: calc(var(--app__action__offset) * 100vh);
+  color: var(--app__action--like__color);
+  border-color: var(--app__action--like__color);
+  transform: rotate(calc(var(--app__action__rotation) * -1));
+}
+.tinderforbananas .view--swipelist .item .action--superlike {
+  bottom: calc(var(--app__action__offset) * 100vh);
+  left: 50%;
+  transform: rotate(calc(var(--app__action__rotation) * -1)) translateX(-50%) ;
+  color: var(--app__action--superlike__color);
+  border-color: var(--app__action--superlike__color);
+}
+.tinderforbananas .view--swipelist .item--next {
+  position: absolute;
+}
+.tinderforbananas .view--swipelist .item--invisible {
+  display: none;
+}
+.tinderforbananas .view--swipelist__controls {
+  padding: calc(var(--app__control__padding) * 100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.tinderforbananas .control {
+  border-radius: 50%;
+  background-color: var(--app__control__color);
+  box-shadow: var(--app__shadow);
+  border: 0;
+  padding: 0;
+}
+.tinderforbananas .control.control--big {
+  width: calc(var(--app__control--big__size) * 100vh);
+  height: calc(var(--app__control--big__size) * 100vh);
+}
+.tinderforbananas .control.control--small {
+  width: calc(var(--app__control--small__size) * 100vh);
+  height: calc(var(--app__control--small__size) * 100vh);
+} 

@@ -44,7 +44,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this._inmovabe = newValue !== null;
+    this._inmovable = newValue !== null;
   }
 
   _startDrag(event) {
@@ -56,6 +56,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
   }
 
   _stopDrag(event) {
+    if (this._inmovable) return;
     if (!this._dragging) return;
     this._dragging = false;
     const deltaX = (event.clientX || event.changedTouches[0].clientX) - this.startX;
@@ -72,6 +73,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
   }
 
   _drag(event) {
+    if (this._inmovable) return;
     if (!this._dragging) return;
 
     const deltaX = (event.clientX || event.touches[0].clientX) - this.startX;

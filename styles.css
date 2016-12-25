@@ -151,7 +151,6 @@ body {
 }
 .tinderforbananas .view--details {
   position: relative;
-  margin-top: calc(var(--app__header__margin) * -100vh);
 }
 .tinderforbananas .view--details__controls {
   position: absolute;

@@ -59,21 +59,62 @@
   function showDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
+    const carousel = document.querySelector('tinderforbananas-carousel');
+    const image = document.querySelector('.view--swipelist .item--top picture');
     details.querySelector('tinderforbananas-details').data = swipelist.querySelector('.item--top').data;
+
+    // Let’s do FLIP!
+    const start = image.getBoundingClientRect();
+    
+    swipelist.classList.add('hidden');
+    details.classList.remove('hidden');
+
+    const target = carousel.getBoundingClientRect();
+    carousel.style.transformOrigin = 'top left';
+    carousel.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
     requestAnimationFramePromise()
+      .then(_ => requestAnimationFramePromise())
       .then(_ => {
-        swipelist.classList.add('hidden');
-        details.classList.remove('hidden');
+        carousel.style.transition = 'transform 0.15s ease-in-out';
+        carousel.style.transform = 'initial';
+        return transitionEndPromise(carousel);
+      })
+      .then(_ => {
+        carousel.style.transform = '';
+        carousel.style.transition = '';
+        carousel.style.transformOrigin = '';
       });
+
   }
 
   function hideDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
+    const carousel = document.querySelector('tinderforbananas-carousel');
+    const item = document.querySelector('.view--swipelist .item--top');
+    const image = document.querySelector('.view--swipelist .item--top picture');
+
+    const start = carousel.getBoundingClientRect();
+
+    swipelist.classList.remove('hidden');
+    details.classList.add('hidden');
+
+    const target = image.getBoundingClientRect();
+    item.style.overflow = 'visible';
+    image.style.transformOrigin = 'top left';
+    image.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
     requestAnimationFramePromise()
+      .then(_ => requestAnimationFramePromise())
       .then(_ => {
-        swipelist.classList.remove('hidden');
-        details.classList.add('hidden');
+        image.style.transition = 'transform 0.15s ease-in-out';
+        image.style.transform = 'initial';
+        return transitionEndPromise(image);
+      })
+      .then(_ => {
+        image.style.transform = '';
+        image.style.transition = '';
+        image.style.transformOrigin = '';
+        item.style.overflow = 'hidden';
       });
   }
 

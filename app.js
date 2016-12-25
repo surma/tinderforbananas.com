@@ -23,6 +23,14 @@
       image: 'testpic3.jpg',
       distance: 9,
       description: 'I am rather phallic.'
+    },
+    {
+      name: 'Actually an orange',
+      age: 12,
+      job: 'Scammer',
+      image: 'testpic4.jpg',
+      distance: 2455,
+      description: 'Do you like my banana?'
     }
   ];
 

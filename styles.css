@@ -21,8 +21,10 @@
   --app__action__offset: calc(96 / var(--device__height));
   --app__action__rotation: 15deg;
   --app__font__size: calc(48 / var(--device__height));
+  --app__font__size--small: 0.7em;
 }
 :root {
+  --app__text__color: hsla(0, 0%, 30%, 1);
   --app__background__color: hsla(0, 0%, 95%, 1);
   --app__header__color: hsla(0, 0%, 100%, 1);
   --app__item__color: hsla(0, 0%, 100%, 1);
@@ -33,6 +35,8 @@
   --app__action--superlike__color: hsla(200, 100%, 50%, 1);
   --app__control--undo__color: hsla(45, 100%, 50%, 1);
   --app__details__control__background: linear-gradient(0deg, hsla(0, 0%, 100%, 1), hsla(0, 0%, 100%, 0.5) 70%, hsla(0, 0%, 100%, 0));
+  --app__details__distance__color: hsla(0, 0%, 0%, 0.34);
+
 }
 * {
   box-sizing: border-box;
@@ -49,6 +53,7 @@ body {
 
   font-family: 'Nunito Sans', sans-serif;
   font-size: calc(var(--app__font__size) * 100vh);
+  color: var(--app__text__color);
 }
 .tinderforbananas {
   display: flex;
@@ -96,11 +101,17 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
-.tinderforbananas .view--swipelist .item .item__details {
+.tinderforbananas .view--details .item__details,
+.tinderforbananas .view--swipelist .item__details {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  align-content: center;
   flex-grow: 1; 
   padding: calc(var(--app__item__details__padding) * 100vh);
+}
+.tinderforbananas .view--details .item__details {
+  flex-grow: 0;
 }
 .tinderforbananas .view--swipelist .item .action {
   position: absolute;
@@ -216,4 +227,20 @@ tinderforbananas-details {
 
   flex-grow: 1;
   overflow-y: auto;
+}
+.tinderforbananas .item__details__name {
+  font-weight: 700;
+}
+.tinderforbananas .item__details__job,
+.tinderforbananas .item__details__distance {
+  font-size: var(--app__font__size--small);
+  flex-basis: 100%;
+}
+.tinderforbananas .item__details__distance {
+  color: var(--app__details__distance__color);
+}
+.tinderforbananas .view--details .description {
+  border-top: 1px solid var(--app__details__distance__color);
+  font-size: var(--app__font__size--small);
+  padding: calc(var(--app__item__details__padding) * 100vh);
 }

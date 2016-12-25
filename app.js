@@ -4,19 +4,25 @@
       name: 'Saba',
       age: 25,
       job: 'Phillippines',
-      image: 'testpic1.jpg'
+      image: 'testpic1.jpg',
+      distance: 25,
+      description: 'Lol 😂'
     },
     {
       name: 'Plantain',
       age: 28,
       job: 'Nicaragua',
-      image: 'testpic2.jpg'
+      image: 'testpic2.jpg',
+      distance: 4,
+      description: 'Lorem ipsum dolor sit amet, quo ad cibo viris legimus, simul delicata constituto per cu. Pro an commodo liberavisse, cu mutat sensibus tractatos est, animal similique ei nec. Et est molestie phaedrum, ut eam quot meliore. Usu hendrerit complectitur at, at iriure habemus facilisis sit. An eos probo graece.Propriae contentiones eu ius, pro eu ignota liberavisse disputationi, duo ea docendi consectetuer. Cum posse semper ea, ius invidunt qualisque scriptorem cu, ullum reprehendunt pro eu. Illud erant reformidans usu in. Ad vim quem choro iracundia. Ius in case mnesarchum.Duis signiferumque sed cu. Ut duo error congue intellegebat, fugit nostrud urbanitas ei has. Copiosae dissentias te eam, dicta efficiendi mea ad. Numquam persequeris te sea, ad populo graeci per, et mea aperiam noluisse interesset.Malorum abhorreant pri eu, no vidit quaeque mei, usu in dico meliore philosophia. Causae verterem pri in, te case suavitate nam. In ius ignota sanctus. Propriae repudiandae ad sit, gubergren ullamcorper usu ei. Ne vis fierent mediocritatem. Id nominati maluisset ius, soluta graece lobortis ut his, vocibus copiosae placerat est ad.Duo alia ferri impetus ei, deleniti scriptorem comprehensam ius an. Mea ne labore oblique adolescens. Ne velit albucius salutatus quo, cum iudico eripuit bonorum ad. Stet suscipit sea ad. Nec prompta suscipit mandamus at.'
     },
     {
       name: 'Banan',
       age: 21,
       job: 'Finnland',
-      image: 'testpic3.jpg'
+      image: 'testpic3.jpg',
+      distance: 9,
+      description: 'I am rather phallic.'
     }
   ];
 

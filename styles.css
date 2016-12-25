@@ -112,6 +112,7 @@ body {
 }
 .tinderforbananas .view--details .item__details {
   flex-grow: 0;
+  flex-shrink: 0;
 }
 .tinderforbananas .view--swipelist .item .action {
   position: absolute;
@@ -227,9 +228,13 @@ tinderforbananas-details {
 
   flex-grow: 1;
   overflow-y: auto;
+  padding-bottom: calc((var(--app__control--big__size) + 2 * var(--app__control__padding))* 100vh)
 }
 .tinderforbananas .item__details__name {
   font-weight: 700;
+}
+.tinderforbananas .item__details__age {
+  margin-left: 0.2em;
 }
 .tinderforbananas .item__details__job,
 .tinderforbananas .item__details__distance {

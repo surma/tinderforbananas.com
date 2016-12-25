@@ -59,15 +59,34 @@
   }
 
   function hookupButtons() {
-    document.querySelector('.control--like').addEventListener('click', _ => {
-      document.querySelector('.item--top').like();
-    });
-    document.querySelector('.control--nope').addEventListener('click', _ => {
-      document.querySelector('.item--top').nope();
-    });
-    document.querySelector('.control--superlike').addEventListener('click', _ => {
-      document.querySelector('.item--top').superlike();
-    });
+    const details = document.querySelector('.view--details');
+    document.querySelectorAll('.control--like').forEach(btn => 
+      btn.addEventListener('click', _ => {
+        let p = Promise.resolve();
+        if (!details.classList.contains('hidden')) {
+          p = hideDetails();
+        }
+        p.then(_ => document.querySelector('.item--top').like());
+      })
+    );
+    document.querySelectorAll('.control--nope').forEach(btn =>
+      btn.addEventListener('click', _ => {
+        let p = Promise.resolve();
+        if (!details.classList.contains('hidden')) {
+          p = hideDetails();
+        }
+        p.then(_ => document.querySelector('.item--top').nope());
+      })
+    );
+    document.querySelectorAll('.control--superlike').forEach(btn => 
+      btn.addEventListener('click', _ => {
+        let p = Promise.resolve();
+        if (!details.classList.contains('hidden')) {
+          p = hideDetails();
+        }
+        p.then(_ => document.querySelector('.item--top').superlike());
+      })
+    );
   }
 
   function showDetails(event) {
@@ -86,7 +105,7 @@
     const target = carousel.getBoundingClientRect();
     carousel.style.transformOrigin = 'top left';
     carousel.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
-    requestAnimationFramePromise()
+    return requestAnimationFramePromise()
       .then(_ => requestAnimationFramePromise())
       .then(_ => {
         carousel.style.transition = 'transform 0.15s ease-in-out';
@@ -117,7 +136,7 @@
     item.style.overflow = 'visible';
     image.style.transformOrigin = 'top left';
     image.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
-    requestAnimationFramePromise()
+    return requestAnimationFramePromise()
       .then(_ => requestAnimationFramePromise())
       .then(_ => {
         image.style.transition = 'transform 0.15s ease-in-out';

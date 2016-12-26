@@ -162,6 +162,7 @@ body {
 }
 .tinderforbananas .view--details {
   position: relative;
+  background-color: var(--app__item__color);
 }
 .tinderforbananas .view--details__controls {
   position: absolute;

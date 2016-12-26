@@ -13,6 +13,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this._stopDrag = this._stopDrag.bind(this);
     this._drag = this._drag.bind(this);
     this._data = {};
+    this._selected = 0;
   }
 
   connectedCallback() {
@@ -36,11 +37,20 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this._updateBindings();
   }
 
+  get selected() {
+    return this._selected;
+  }
+
+  set selected(value) {
+    this._selected = value;
+    this._updateBindings();
+  }
+
   _updateBindings() {
     this.querySelector('.item__details__name').textContent = `${this.data.name}`;
     this.querySelector('.item__details__age').textContent = `${this.data.age}`;
     this.querySelector('.item__details__job').textContent = `${this.data.job}`;
-    this.querySelector('picture').style.backgroundImage = `url('${this.data.images[0]}')`;
+    this.querySelector('picture').style.backgroundImage = `url('${this.data.images[this.selected]}')`;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

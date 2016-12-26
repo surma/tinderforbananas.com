@@ -127,12 +127,13 @@
     const item = document.querySelector('.view--swipelist .item--top');
     const image = document.querySelector('.view--swipelist .item--top picture');
 
-    const start = carousel.getBoundingClientRect();
+    item.selected = event.detail.selected || 0;
 
+    const start = carousel.getBoundingClientRect();
     swipelist.classList.remove('hidden');
     details.classList.add('hidden');
-
     const target = image.getBoundingClientRect();
+
     item.style.overflow = 'visible';
     image.style.transformOrigin = 'top left';
     image.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
@@ -168,7 +169,6 @@
     next.data = dataProvider.next().value;
     const details = document.querySelector('tinderforbananas-details');
     details.addEventListener('dismiss', hideDetails);
-    // document.querySelector('tinderforbananas-carousel').addEventListener('dismiss', hideDetails);
     copyControls();
     adjustNextItem();
     window.addEventListener('resize', adjustNextItem);

@@ -42,7 +42,14 @@ customElements.define('tinderforbananas-carousel', class extends HTMLElement {
     if (!this._dragging) return;
     this._dragging = false;
     let deltaX = (event.clientX || event.changedTouches[0].clientX) - this._startX;
-    if (Math.abs(deltaX) < 10) return this.dispatchEvent(new CustomEvent('dismiss', {bubbles: true}));
+    if (Math.abs(deltaX) < 10) return this.dispatchEvent(
+      new CustomEvent('dismiss', {
+        detail: {
+          selected: this.selected
+        },
+        bubbles: true
+      })
+    );
     if (this.selected === 0 && deltaX > 0) deltaX = 0;
     if (this.selected === this._images.length-1 && deltaX < 0) deltaX = 0;
 

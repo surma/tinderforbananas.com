@@ -53,7 +53,9 @@ customElements.define('tinderforbananas-carousel', class extends HTMLElement {
     if (this.selected === 0 && deltaX > 0) deltaX = 0;
     if (this.selected === this._images.length-1 && deltaX < 0) deltaX = 0;
 
-    let idxOffset = Math.round(deltaX / this._width);
+    let idxOffset = 0;
+    if (deltaX > this._width/4) idxOffset = 1;
+    if (deltaX < -this._width/4) idxOffset = -1;
     this.selected -= idxOffset;
     
     const r1 = this._images[0].getBoundingClientRect();

@@ -53,7 +53,9 @@
   function updateCards() {
     const top = document.querySelector('.item--top');
     const next = document.querySelector('.item--next');
+    const details = document.querySelector('tinderforbananas-details');
     top.style.transform = '';
+    top.selected = 0;
     top.data = next.data;
     next.data = dataProvider.next().value;
   }
@@ -136,7 +138,7 @@
     const item = document.querySelector('.view--swipelist .item--top');
     const image = document.querySelector('.view--swipelist .item--top picture');
 
-    item.selected = event.detail.selected || 0;
+    item.selected = event && event.detail.selected || 0;
 
     const start = carousel.getBoundingClientRect();
     swipelist.classList.remove('overlaid');

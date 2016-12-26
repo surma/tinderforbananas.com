@@ -18,6 +18,7 @@ customElements.define('tinderforbananas-details', class extends HTMLElement {
 
   _updateBindings() {
     if(!this.data) return;
+    this._carousel.selected = 0;
     while(this._carousel.firstChild) this._carousel.removeChild(this._carousel.firstChild);
     for(let imgSrc of this.data.images) {
       const div = document.createElement('div');

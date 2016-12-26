@@ -91,7 +91,6 @@ body {
   flex-direction: column;
   align-items: stretch;
 }
-.tinderforbananas .view--details tinderforbananas-carousel, /* FIXME */
 .tinderforbananas .view--swipelist .item picture {
   position: relative;
   width: 100%;
@@ -248,4 +247,22 @@ tinderforbananas-details {
   border-top: 1px solid var(--app__details__distance__color);
   font-size: var(--app__font__size--small);
   padding: calc(var(--app__item__details__padding) * 100vh);
+}
+tinderforbananas-carousel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; 
+  overflow: hidden;
+}
+tinderforbananas-carousel .carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }

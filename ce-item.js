@@ -40,7 +40,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this.querySelector('.item__details__name').textContent = `${this.data.name}`;
     this.querySelector('.item__details__age').textContent = `${this.data.age}`;
     this.querySelector('.item__details__job').textContent = `${this.data.job}`;
-    this.querySelector('picture').style.backgroundImage = `url('${this.data.image}')`;
+    this.querySelector('picture').style.backgroundImage = `url('${this.data.images[0]}')`;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -68,7 +68,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     if (deltaX < -this._gBCR.width / 2) return this.nope();
     if (deltaX > this._gBCR.width / 2) return this.like();
     if (deltaY < -this._gBCR.height / 2) return this.superlike();
-    if (deltaX === 0 && deltaY === 0) return this.dispatchEvent(new CustomEvent('details', {detail: this.data}));
+    if (deltaX === 0 && deltaY === 0) return this.dispatchEvent(new CustomEvent('details', {detail: this.data, bubbles: true}));
     return this._animate('initial');
   }
 

@@ -1,6 +1,6 @@
 :root {
   --device__width: 1080;
-  --device__height: 1700;
+  --device__height: 1600;
   --device__aspect-ratio: calc(var(--device__width) / var(--device__height));
   --device__top-bar__height: calc(64 / var(--device__height));
   --device__bottom-bar__height: calc(128 / var(--device__height));
@@ -96,7 +96,6 @@ body {
 }
 .tinderforbananas .view--swipelist .item {
   border-radius: calc(var(--app__item__radius) * 100vh);
-  flex-grow: 1;
   background-color: var(--app__item__color);
   margin: 0 calc(var(--app__item__margin) * 100vh);
   box-shadow: var(--app__shadow);
@@ -187,6 +186,9 @@ body {
 .tinderforbananas .view--swipelist.overlaid + .view--details section,
 .tinderforbananas .view--swipelist.overlaid + .view--details nav {
   transform: translateY(50vh);
+}
+.tinderforbananas .view--swipelist__controls {
+  margin-top: auto;
 }
 .tinderforbananas .view--swipelist__controls,
 .tinderforbananas .view--details__controls {

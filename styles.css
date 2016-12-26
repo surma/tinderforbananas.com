@@ -41,6 +41,9 @@
 * {
   box-sizing: border-box;
 }
+a {
+  color: initial; 
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -72,6 +75,17 @@ body {
   background-color: var(--app__header__color);
   box-shadow: var(--app__shadow);
   margin-bottom: calc(var(--app__header__margin) * 100vh);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tinderforbananas header p {
+  margin: 0;
+}
+.tinderforbananas header .copyright {
+  font-size: 0.5em;
 }
 .tinderforbananas .view {
   flex-grow: 1;

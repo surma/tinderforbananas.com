@@ -22,7 +22,7 @@
       job: 'Finnland',
       images: ['testpic3.jpg'],
       distance: 9,
-      description: 'I am rather phallic.'
+      description: 'I like fruits!'
     },
     {
       name: 'Actually an orange',
@@ -30,7 +30,7 @@
       job: 'Scammer',
       images: ['testpic4.jpg'],
       distance: 2455,
-      description: 'Do you like my banana?'
+      description: 'Follow me on my totally banana-related Instagram 📸'
     }
   ];
 

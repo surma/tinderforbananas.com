@@ -92,6 +92,9 @@
   function showDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
+    const detailsText1 = details.querySelector('.item__details');
+    const detailsText2 = details.querySelector('.description');
+    const detailsNav = details.querySelector('nav');
     const carousel = document.querySelector('tinderforbananas-carousel');
     const image = document.querySelector('.view--swipelist .item--top picture');
     details.querySelector('tinderforbananas-details').data = swipelist.querySelector('.item--top').data;
@@ -99,7 +102,7 @@
     // Let’s do FLIP!
     const start = image.getBoundingClientRect();
     
-    swipelist.classList.add('hidden');
+    swipelist.classList.add('overlaid');
     details.classList.remove('hidden');
 
     const target = carousel.getBoundingClientRect();
@@ -110,6 +113,9 @@
       .then(_ => {
         carousel.style.transition = 'transform 0.15s ease-in-out';
         carousel.style.transform = 'initial';
+        detailsText1.style.transform = 'initial';
+        detailsText2.style.transform = 'initial';
+        detailsNav.style.transform = 'initial';
         return transitionEndPromise(carousel);
       })
       .then(_ => {
@@ -123,6 +129,9 @@
   function hideDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const details = document.querySelector('.view--details');
+    const detailsText1 = details.querySelector('.item__details');
+    const detailsText2 = details.querySelector('.description');
+    const detailsNav = details.querySelector('nav');
     const carousel = document.querySelector('tinderforbananas-carousel');
     const item = document.querySelector('.view--swipelist .item--top');
     const image = document.querySelector('.view--swipelist .item--top picture');
@@ -130,25 +139,31 @@
     item.selected = event.detail.selected || 0;
 
     const start = carousel.getBoundingClientRect();
-    swipelist.classList.remove('hidden');
+    swipelist.classList.remove('overlaid');
     details.classList.add('hidden');
     const target = image.getBoundingClientRect();
+    swipelist.classList.add('overlaid');
+    details.classList.remove('hidden');
 
     item.style.overflow = 'visible';
-    image.style.transformOrigin = 'top left';
-    image.style.transform = `scaleX(${start.width/target.width}) scaleY(${start.height/target.height}) translate(${start.left - target.left}px, ${start.top - target.top}px)`;   
+    carousel.style.transformOrigin = 'top left';
+    carousel.style.transition = 'transform 0.15s ease-in-out';
     return requestAnimationFramePromise()
       .then(_ => requestAnimationFramePromise())
       .then(_ => {
-        image.style.transition = 'transform 0.15s ease-in-out';
-        image.style.transform = 'initial';
-        return transitionEndPromise(image);
+        carousel.style.transform = `scaleX(${target.width/start.width}) scaleY(${target.height/start.height}) translate(${target.left - start.left}px, ${target.top - start.top}px)`;   
+        detailsText1.style.transform = '';
+        detailsText2.style.transform = '';
+        detailsNav.style.transform = '';
+        return transitionEndPromise(carousel);
       })
       .then(_ => {
-        image.style.transform = '';
-        image.style.transition = '';
-        image.style.transformOrigin = '';
+        carousel.style.transform = '';
+        carousel.style.transition = '';
+        carousel.style.transformOrigin = '';
         item.style.overflow = 'hidden';
+        details.classList.add('hidden');
+        swipelist.classList.remove('overlaid');
       });
   }
 

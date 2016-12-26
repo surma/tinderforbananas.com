@@ -56,6 +56,7 @@ body {
   color: var(--app__text__color);
 }
 .tinderforbananas {
+  position: relative;
   display: flex;
   height: 100vh;
   width: calc(var(--device__aspect-ratio) * 100vh);
@@ -77,6 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  height: 100%;
 }
 .tinderforbananas .view--swipelist .item {
   border-radius: calc(var(--app__item__radius) * 100vh);
@@ -152,6 +154,26 @@ body {
 .hidden {
   display: none !important;
 }
+.tinderforbananas .view--swipelist .item__details,
+.tinderforbananas .view--swipelist nav {
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+}
+.tinderforbananas .view--swipelist.overlaid picture {
+  visibility: hidden;
+}
+.tinderforbananas .view--swipelist.overlaid .item__details,
+.tinderforbananas .view--swipelist.overlaid nav {
+  opacity: 0;
+}
+.tinderforbananas .view--swipelist + .view--details section,
+.tinderforbananas .view--swipelist + .view--details nav {
+  transition: transform 0.15s ease-in-out;
+}
+.tinderforbananas .view--swipelist.overlaid + .view--details section,
+.tinderforbananas .view--swipelist.overlaid + .view--details nav {
+  transform: translateY(50vh);
+}
 .tinderforbananas .view--swipelist__controls,
 .tinderforbananas .view--details__controls {
   padding: calc(var(--app__control__padding) * 100vh);
@@ -161,8 +183,10 @@ body {
   justify-content: space-around;
 }
 .tinderforbananas .view--details {
-  position: relative;
-  background-color: var(--app__item__color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .tinderforbananas .view--details__controls {
   position: absolute;
@@ -228,7 +252,6 @@ tinderforbananas-details {
 
   flex-grow: 1;
   overflow-y: auto;
-  padding-bottom: calc((var(--app__control--big__size) + 2 * var(--app__control__padding))* 100vh)
 }
 .tinderforbananas .item__details__name {
   font-weight: 700;
@@ -244,10 +267,16 @@ tinderforbananas-details {
 .tinderforbananas .item__details__distance {
   color: var(--app__details__distance__color);
 }
+.tinderforbananas .view--details .description,
+.tinderforbananas .view--details .item__details {
+  background-color: var(--app__item__color);
+}
 .tinderforbananas .view--details .description {
+  flex-grow: 1;
   border-top: 1px solid var(--app__details__distance__color);
   font-size: var(--app__font__size--small);
   padding: calc(var(--app__item__details__padding) * 100vh);
+  padding-bottom: calc((var(--app__control--big__size) + 2 * var(--app__control__padding))* 100vh)
 }
 tinderforbananas-carousel {
   position: relative;

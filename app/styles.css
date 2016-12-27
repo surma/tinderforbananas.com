@@ -48,6 +48,7 @@ html, body {
   margin: 0;
   padding: 0;
   border: 0;
+  height: 100%;
 }
 body {
   display: flex;
@@ -61,7 +62,7 @@ body {
 .tinderforbananas {
   position: relative;
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: calc(var(--device__aspect-ratio) * 100vh);
   max-width: calc(var(--device__aspect-ratio) * 100vh);
   flex-direction: column;

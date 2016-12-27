@@ -1,6 +1,6 @@
 :root {
   --device__width: 1080;
-  --device__height: 1600;
+  --device__height: 1800;
   --device__aspect-ratio: calc(var(--device__width) / var(--device__height));
   --device__top-bar__height: calc(64 / var(--device__height));
   --device__bottom-bar__height: calc(128 / var(--device__height));

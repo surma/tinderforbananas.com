@@ -9,9 +9,9 @@
   "author": "Surma <surma@surma.link>",
   "license": "Apache-2.0",
   "dependencies": {
-    "google-closure-compiler": "^20161201.0.0",
+    "babel-preset-babili": "^0.0.9",
     "gulp": "^3.9.1",
-    "gulp-closure-compiler": "^0.4.0",
+    "gulp-babel": "^6.1.2",
     "gulp-html-minifier": "^0.1.8",
     "gulp-postcss": "^6.2.0",
     "postcss": "^5.2.8",

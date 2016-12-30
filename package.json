@@ -8,6 +8,9 @@
   },
   "author": "Surma <surma@surma.link>",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "gulp"
+  },
   "dependencies": {
     "babel-preset-babili": "^0.0.9",
     "gulp": "^3.9.1",

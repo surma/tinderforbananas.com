@@ -4,7 +4,7 @@
       name: 'Saba',
       age: 25,
       job: 'Phillippines',
-      images: ['images/testpic1.jpg', 'images/testpic2.jpg', 'images/testpic3.jpg'],
+      images: ['images/testpic4.jpg', 'images/testpic2.jpg', 'images/testpic1.jpg'],
       distance: 25,
       description: 'Lol 😂'
     },
@@ -20,7 +20,7 @@
       name: 'Banan',
       age: 21,
       job: 'Finnland',
-      images: ['images/testpic3.jpg'],
+      images: ['images/testpic3.jpg', 'images/testpic2.jpg'],
       distance: 9,
       description: 'I like fruits!'
     },
@@ -28,7 +28,7 @@
       name: 'Actually an orange',
       age: 12,
       job: 'Scammer',
-      images: ['images/testpic4.jpg'],
+      images: ['images/testpic1.jpg', 'images/testpic2.jpg'],
       distance: 2455,
       description: 'Follow me on my totally banana-related Instagram 📸'
     }

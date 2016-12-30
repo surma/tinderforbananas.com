@@ -36,4 +36,4 @@ gulp.task('copy-images', _ =>
     .pipe(gulp.dest('dist'))
 )
 
-gulp.task('default', ['build-css', 'build-js', 'build-html']);
+gulp.task('default', ['build-css', 'build-js', 'build-html', 'copy-images']);

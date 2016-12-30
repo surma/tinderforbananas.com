@@ -269,6 +269,7 @@ tinderforbananas-details {
 
   flex-grow: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .tinderforbananas .item__details__name {
   font-weight: 700;

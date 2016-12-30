@@ -40,14 +40,20 @@
     }
   })();
 
-  function adjustNextItem() {
+  function adjustSwipeItems() {
     const top = document.querySelector('.item--top');
     const next = document.querySelector('.item--next');
+    next.classList.add('hidden');
+    top.style.cssText = '';
+    top.style.position = 'relative';
     const topR = top.getBoundingClientRect();
+    top.style.position = '';
     next.classList.remove('hidden');
-    next.style.top = `${topR.top}px`;
-    next.style.width = `${topR.width}px`;
-    next.style.height = `${topR.height}px`;
+    top.style.top = next.style.top = `${topR.top}px`;
+    top.style.width = next.style.width = `${topR.width}px`;
+    top.style.height = next.style.height = `${topR.height}px`;
+    top.onResize();
+    next.onResize();
   }
 
   function updateCards() {
@@ -187,8 +193,8 @@
     const details = document.querySelector('tinderforbananas-details');
     details.addEventListener('dismiss', hideDetails);
     copyControls();
-    adjustNextItem();
-    window.addEventListener('resize', adjustNextItem);
+    adjustSwipeItems();
+    window.addEventListener('resize', adjustSwipeItems);
     hookupButtons();
   }
   document.addEventListener('DOMContentLoaded', init);

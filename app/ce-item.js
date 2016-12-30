@@ -14,10 +14,10 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this._drag = this._drag.bind(this);
     this._data = {};
     this._selected = 0;
+
   }
 
   connectedCallback() {
-    this._gBCR = this.getBoundingClientRect();
     this.addEventListener('mousedown', this._startDrag);
     document.addEventListener('mouseup', this._stopDrag); 
     document.addEventListener('mousemove', this._drag); 
@@ -26,6 +26,15 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     document.addEventListener('touchmove', this._drag);
 
     this._actions = Array.from(this.querySelectorAll('.action'));
+    this.onResize();
+  }
+
+  onResize() {
+    this._gBCR = this.getBoundingClientRect();
+    this._rotationLerp = lerp(0, this._gBCR.width/2, 0, 10, {noClamp: true});
+    this._nopeOpacityLerp = lerp(0, -this._gBCR.width/3, 0, 1);
+    this._likeOpacityLerp = lerp(0, this._gBCR.width/3, 0, 1);
+    this._superlikeOpacityLerp = lerp(-this._gBCR.height/3, -this._gBCR.height/3 - this._gBCR.height/3, 0, 1);
   }
 
   get data() {
@@ -75,9 +84,9 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this._actions.forEach(a => a.style.opacity = 0);
     event.preventDefault();
 
-    if (deltaX < -this._gBCR.width / 2) return this.nope();
-    if (deltaX > this._gBCR.width / 2) return this.like();
-    if (deltaY < -this._gBCR.height / 2) return this.superlike();
+    if (this._superlikeOpacityLerp(deltaY) >= 1) return this.superlike();
+    if (this._nopeOpacityLerp(deltaX) >= 1) return this.nope();
+    if (this._likeOpacityLerp(deltaX) >= 1) return this.like();
     if (deltaX === 0 && deltaY === 0) return this.dispatchEvent(new CustomEvent('details', {detail: this.data, bubbles: true}));
     return this._animate('initial');
   }
@@ -89,10 +98,10 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     const deltaX = (event.clientX || event.touches[0].clientX) - this.startX;
     const deltaY = (event.clientY || event.touches[0].clientY) - this.startY;
 
-    this.style.transform = `rotate(${(deltaX) / this._gBCR.width * 15}deg) translate(${deltaX}px, ${deltaY}px)`;
-    this._actions.find(a => a.classList.contains('action--nope')).style.opacity = (-deltaX - this._gBCR.width / 5) / (this._gBCR.width / 3);
-    this._actions.find(a => a.classList.contains('action--like')).style.opacity = ( deltaX - this._gBCR.width / 5) / (this._gBCR.width / 3);
-    this._actions.find(a => a.classList.contains('action--superlike')).style.opacity = (-deltaY - this._gBCR.height / 5) / (this._gBCR.height / 3);
+    this.style.transform = `rotate(${this._rotationLerp(deltaX)}deg) translate(${deltaX}px, ${deltaY}px)`;
+    this._actions.find(a => a.classList.contains('action--nope')).style.opacity = this._nopeOpacityLerp(deltaX);
+    this._actions.find(a => a.classList.contains('action--like')).style.opacity = this._likeOpacityLerp(deltaX);
+    this._actions.find(a => a.classList.contains('action--superlike')).style.opacity = this._superlikeOpacityLerp(deltaY);
     event.preventDefault();
   }
 

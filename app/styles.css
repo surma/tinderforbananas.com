@@ -220,6 +220,8 @@ body {
   width: 100%;
   height: 100%;
   stroke-linecap: round;
+  /* Fallback for Safari */
+  stroke-width: 8px;
   stroke-width: calc(var(--app__control__line) * 100vh);
   stroke-linejoin: round;
 }

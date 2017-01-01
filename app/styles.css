@@ -301,6 +301,7 @@ tinderforbananas-carousel {
   width: 100%;
   padding-bottom: 100%; 
   overflow: hidden;
+  flex-shrink: 0;
 }
 tinderforbananas-carousel .carousel__item {
   position: absolute;

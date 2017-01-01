@@ -6,7 +6,7 @@
       job: 'Phillippines',
       images: ['images/testpic4.jpg', 'images/testpic2.jpg', 'images/testpic1.jpg'],
       distance: 25,
-      description: 'Lol 😂'
+      description: 'Swipe for me! You’ll find me very ap-peel-ing'
     },
     {
       name: 'Plantain',

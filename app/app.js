@@ -42,24 +42,16 @@
 
   function adjustSwipeItems() {
     const top = document.querySelector('.item--top');
-    const topPic = top.querySelector('picture');
     const next = document.querySelector('.item--next');
-    const nextPic = next.querySelector('picture');
-    const carousel = document.querySelector('tinderforbananas-carousel');
     next.classList.add('hidden');
     top.style.cssText = '';
     top.style.position = 'relative';
-    topPic.style.height = '';
     const topR = top.getBoundingClientRect();
     top.style.position = '';
     next.classList.remove('hidden');
     top.style.top = next.style.top = `${topR.top}px`;
     top.style.width = next.style.width = `${topR.width}px`;
-    topPic.style.height = `${topR.width}px`;
-    nextPic.style.height = `${topR.width}px`;
-    const carouselR = document.querySelector('main').getBoundingClientRect();
-    carousel.style.paddingBottom = '0px';
-    carousel.style.height = `${carouselR.width}px`;
+    top.style.height = next.style.height = `${topR.height}px`;
     top.onResize();
     next.onResize();
   }

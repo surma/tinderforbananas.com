@@ -112,11 +112,19 @@ body {
   position: relative;
   width: 100%;
   flex-grow: 0;
-  padding-bottom: 100%;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+.tinderforbananas .view--swipelist .item picture:before {
+  content: '';
+  display: block;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  padding-bottom: 100%;
+}
+
 .tinderforbananas .view--details .item__details,
 .tinderforbananas .view--swipelist .item__details {
   display: flex;

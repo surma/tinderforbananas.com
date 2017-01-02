@@ -34,7 +34,7 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
     this._rotationLerp = lerp(0, this._gBCR.width/2, 0, 10, {noClamp: true});
     this._nopeOpacityLerp = lerp(0, -this._gBCR.width/3, 0, 1);
     this._likeOpacityLerp = lerp(0, this._gBCR.width/3, 0, 1);
-    this._superlikeOpacityLerp = lerp(-this._gBCR.height/3, -this._gBCR.height/3 - this._gBCR.height/3, 0, 1);
+    this._superlikeOpacityLerp = lerp(-this._gBCR.height/8, -this._gBCR.height/8 - this._gBCR.height/3, 0, 1);
   }
 
   get data() {

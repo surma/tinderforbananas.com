@@ -1,6 +1,7 @@
 (function () {
   const items = [
     {
+      id: 0,
       name: 'Saba',
       age: 25,
       job: 'Phillippines',
@@ -9,6 +10,7 @@
       description: 'Swipe for me! You’ll find me very ap-peel-ing'
     },
     {
+      id: 1,
       name: 'Plantain',
       age: 28,
       job: 'Nicaragua',
@@ -17,6 +19,7 @@
       description: 'Lorem ipsum dolor sit amet, quo ad cibo viris legimus, simul delicata constituto per cu. Pro an commodo liberavisse, cu mutat sensibus tractatos est, animal similique ei nec. Et est molestie phaedrum, ut eam quot meliore. Usu hendrerit complectitur at, at iriure habemus facilisis sit. An eos probo graece.Propriae contentiones eu ius, pro eu ignota liberavisse disputationi, duo ea docendi consectetuer. Cum posse semper ea, ius invidunt qualisque scriptorem cu, ullum reprehendunt pro eu. Illud erant reformidans usu in. Ad vim quem choro iracundia. Ius in case mnesarchum.Duis signiferumque sed cu. Ut duo error congue intellegebat, fugit nostrud urbanitas ei has. Copiosae dissentias te eam, dicta efficiendi mea ad. Numquam persequeris te sea, ad populo graeci per, et mea aperiam noluisse interesset.Malorum abhorreant pri eu, no vidit quaeque mei, usu in dico meliore philosophia. Causae verterem pri in, te case suavitate nam. In ius ignota sanctus. Propriae repudiandae ad sit, gubergren ullamcorper usu ei. Ne vis fierent mediocritatem. Id nominati maluisset ius, soluta graece lobortis ut his, vocibus copiosae placerat est ad.Duo alia ferri impetus ei, deleniti scriptorem comprehensam ius an. Mea ne labore oblique adolescens. Ne velit albucius salutatus quo, cum iudico eripuit bonorum ad. Stet suscipit sea ad. Nec prompta suscipit mandamus at.'
     },
     {
+      id: 2,
       name: 'Banan',
       age: 21,
       job: 'Finnland',
@@ -25,6 +28,7 @@
       description: 'I like fruits!'
     },
     {
+      id: 3,
       name: 'Actually an orange',
       age: 12,
       job: 'Scammer',
@@ -56,8 +60,9 @@
     next.onResize();
   }
 
-  function updateCards() {
+  function updateCards(event) {
     const top = document.querySelector('.item--top');
+    ga && ga('send', 'event', `item-${top.data.id}`, event.detail);
     const next = document.querySelector('.item--next');
     const details = document.querySelector('tinderforbananas-details');
     top.style.transform = '';
@@ -99,13 +104,15 @@
 
   function showDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
+    const data = swipelist.querySelector('.item--top').data;
+    ga && ga('send', 'event', `item-${data.id}`, 'details');
     const details = document.querySelector('.view--details');
     const detailsText1 = details.querySelector('.item__details');
     const detailsText2 = details.querySelector('.description');
     const detailsNav = details.querySelector('nav');
     const carousel = document.querySelector('tinderforbananas-carousel');
     const image = document.querySelector('.view--swipelist .item--top picture');
-    details.querySelector('tinderforbananas-details').data = swipelist.querySelector('.item--top').data;
+    details.querySelector('tinderforbananas-details').data = data;
 
     // Let’s do FLIP!
     const start = image.getBoundingClientRect();

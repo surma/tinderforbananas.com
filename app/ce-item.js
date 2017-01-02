@@ -118,14 +118,14 @@ customElements.define('tinderforbananas-item', class extends HTMLElement {
   }
   like(item) {
     return this._animate('translateX(200%)', {next: true})
-      .then(_ => this.dispatchEvent(new Event('swipe', {type: 'like'})));
+      .then(_ => this.dispatchEvent(new CustomEvent('swipe', {detail: 'like'})));
   }
   nope(item) {
     return this._animate('translateX(-200%)', {next: true})
-      .then(_ => this.dispatchEvent(new Event('swipe', {type: 'nope'})));
+      .then(_ => this.dispatchEvent(new CustomEvent('swipe', {detail: 'nope'})));
   }
   superlike(item) {
     return this._animate('translateY(-200%)', {next: true})
-      .then(_ => this.dispatchEvent(new Event('swipe', {type: 'superlike'})));
+      .then(_ => this.dispatchEvent(new CustomEvent('swipe', {detail: 'superlike'})));
   }
 });

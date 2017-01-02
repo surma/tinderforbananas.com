@@ -4,6 +4,9 @@ const cssnext = require('postcss-cssnext');
 const babel = require('gulp-babel');
 const through = require('through2');
 const htmlMinifier = require('gulp-html-minifier');
+const replace = require('gulp-replace');
+
+const pkg = require('./package.json');
 
 gulp.task('build-css', _ =>
   gulp.src('app/*.css')
@@ -13,6 +16,7 @@ gulp.task('build-css', _ =>
 
 gulp.task('build-js', _ =>
   gulp.src('app/*.js')
+    .pipe(replace('{%VERSION%}', pkg.version))
     .pipe(babel({
       presets: ['babili']
     }))
@@ -31,9 +35,9 @@ gulp.task('build-html', _ =>
     .pipe(gulp.dest('dist'))
 );
 
-gulp.task('copy-images', _ =>
-  gulp.src('app/images/**', {base: 'app'})
+gulp.task('copy', _ =>
+  gulp.src(['app/images/**', 'app/manifest.json'], {base: 'app'})
     .pipe(gulp.dest('dist'))
 )
 
-gulp.task('default', ['build-css', 'build-js', 'build-html', 'copy-images']);
+gulp.task('default', ['build-css', 'build-js', 'build-html', 'copy']);

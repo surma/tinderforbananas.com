@@ -190,6 +190,11 @@
     });
   }
 
+  function installServiceWorker() {
+    if (!'serviceWorker' in navigator) return;
+    navigator.serviceWorker.register('sw.js');
+  }
+
   function init() {
     const top = document.querySelector('.item--top');
     top.data = dataProvider.next().value;
@@ -203,6 +208,7 @@
     adjustSwipeItems();
     window.addEventListener('resize', adjustSwipeItems);
     hookupButtons();
+    installServiceWorker();
   }
   document.addEventListener('DOMContentLoaded', init);
 })();

@@ -17,6 +17,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-html-minifier": "^0.1.8",
     "gulp-postcss": "^6.2.0",
+    "gulp-replace": "^0.5.4",
     "postcss": "^5.2.8",
     "postcss-cssnext": "^2.9.0",
     "through2": "^2.0.3"

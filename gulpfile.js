@@ -36,7 +36,7 @@ gulp.task('build-html', _ =>
 );
 
 gulp.task('copy', _ =>
-  gulp.src(['app/images/**', 'app/manifest.json'], {base: 'app'})
+  gulp.src(['app/images/**/*', 'app/manifest.json'], {base: 'app'})
     .pipe(gulp.dest('dist'))
 )
 

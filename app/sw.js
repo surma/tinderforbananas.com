@@ -1,6 +1,7 @@
 (function () {
   const VERSION = '{%VERSION%}';
   const files = [
+    'images/bigbanan.jpg',
     'images/banana.png',
     'images/banana.svg',
     'images/testpic1.jpg',

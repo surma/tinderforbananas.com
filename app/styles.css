@@ -1,6 +1,6 @@
 :root {
   --device__width: 1080;
-  --device__height: 1800;
+  --device__height: 1700;
   --device__aspect-ratio: calc(var(--device__width) / var(--device__height));
   --device__top-bar__height: calc(64 / var(--device__height));
   --device__bottom-bar__height: calc(128 / var(--device__height));
@@ -43,7 +43,7 @@
   box-sizing: border-box;
 }
 a {
-  color: initial; 
+  color: initial;
 }
 html, body {
   margin: 0;
@@ -69,7 +69,7 @@ body {
   max-width: calc(var(--device__aspect-ratio) * 100vh);
   flex-direction: column;
   background-color: var(--app__background__color);
-  
+
   overflow: hidden;
 }
 .tinderforbananas header {
@@ -133,7 +133,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
-  flex-grow: 1; 
+  flex-grow: 1;
   padding: calc(var(--app__item__details__padding) * 100vh);
 }
 .tinderforbananas .view--details .item__details {
@@ -246,7 +246,7 @@ body {
 .tinderforbananas .control--small {
   width: calc(var(--app__control--small__size) * 100vh);
   height: calc(var(--app__control--small__size) * 100vh);
-} 
+}
 .tinderforbananas .control--nope svg {
   stroke: var(--app__action--nope__color);
   fill: var(--app__action--nope__color);

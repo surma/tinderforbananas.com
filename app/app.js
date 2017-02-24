@@ -62,7 +62,7 @@
 
   function updateCards(event) {
     const top = document.querySelector('.item--top');
-    ga && ga('send', 'event', `item-${top.data.id}`, event.detail);
+    window.ga && ga('send', 'event', `item-${top.data.id}`, event.detail);
     const next = document.querySelector('.item--next');
     const details = document.querySelector('tinderforbananas-details');
     top.style.transform = '';
@@ -105,7 +105,7 @@
   function showDetails(event) {
     const swipelist = document.querySelector('.view--swipelist');
     const data = swipelist.querySelector('.item--top').data;
-    ga && ga('send', 'event', `item-${data.id}`, 'details');
+    window.ga && ga('send', 'event', `item-${data.id}`, 'details');
     const details = document.querySelector('.view--details');
     const detailsText1 = details.querySelector('.item__details');
     const detailsText2 = details.querySelector('.description');

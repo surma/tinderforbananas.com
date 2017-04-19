@@ -1,0 +1,25 @@
+{
+  "name": "tinderforbananas.com",
+  "version": "1.1.5",
+  "description": "Tinder For Bananas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surma/tinderforbananas.com"
+  },
+  "author": "Surma <surma@surma.link>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "gulp"
+  },
+  "dependencies": {
+    "babel-preset-babili": "^0.0.9",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-postcss": "^6.2.0",
+    "gulp-replace": "^0.5.4",
+    "postcss": "^5.2.8",
+    "postcss-cssnext": "^2.9.0",
+    "through2": "^2.0.3"
+  }
+}

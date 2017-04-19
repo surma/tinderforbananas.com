@@ -1,0 +1,385 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  color: #000;
+  color: initial;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 2.824vh;
+  color: hsla(0, 0%, 30%, 1);
+  background-color: black;
+}
+.tinderforbananas {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 63.529vh;
+  max-width: 63.529vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: hsla(0, 0%, 95%, 1);
+
+  overflow: hidden;
+}
+.tinderforbananas header {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  height: 8.471vh;
+  background-color: hsla(0, 0%, 100%, 1);
+  box-shadow: 0 4px 4px hsla(0, 0%, 0%, .05);
+  margin-bottom: 2.824vh;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tinderforbananas header p {
+  margin: 0;
+}
+.tinderforbananas header .copyright {
+  font-size: 0.5em;
+}
+.tinderforbananas .view {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100%;
+}
+.tinderforbananas .view--swipelist .item {
+  border-radius: 1.882vh;
+  background-color: hsla(0, 0%, 100%, 1);
+  margin: 0 1.882vh;
+  box-shadow: 0 4px 4px hsla(0, 0%, 0%, .05);
+  will-change: transform;
+  overflow: hidden;
+  position: absolute;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.tinderforbananas .view--swipelist .item picture {
+  position: relative;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.tinderforbananas .view--swipelist .item picture:before {
+  content: '';
+  display: block;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  padding-bottom: 100%;
+}
+
+.tinderforbananas .view--details .item__details,
+.tinderforbananas .view--swipelist .item__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1.882vh;
+}
+.tinderforbananas .view--details .item__details {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.tinderforbananas .view--swipelist .item .action {
+  position: absolute;
+  font-size: 4.235vh;
+  text-transform: uppercase;
+  border: 0.588vh solid black;
+  border-radius: 0.588vh;
+  padding: 0.941vh 1.882vh;
+  text-align: center;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  will-change: opacity;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tinderforbananas .view--swipelist .item .action--nope {
+  right: 5.647vh;
+  top: 5.647vh;
+  color: hsla(10, 100%, 60%, 1);
+  border-color: hsla(10, 100%, 60%, 1);
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+.tinderforbananas .view--swipelist .item .action--like {
+  left: 5.647vh;
+  top: 5.647vh;
+  color: hsla(170, 100%, 45%, 1);
+  border-color: hsla(170, 100%, 45%, 1);
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+}
+.tinderforbananas .view--swipelist .item .action--superlike {
+  bottom: 5.647vh;
+  left: 50%;
+  -webkit-transform: rotate(-15deg) translateX(-50%);
+          transform: rotate(-15deg) translateX(-50%);
+  color: hsla(200, 100%, 50%, 1);
+  border-color: hsla(200, 100%, 50%, 1);
+}
+.hidden {
+  display: none !important;
+}
+.tinderforbananas .view--swipelist .item__details,
+.tinderforbananas .view--swipelist nav {
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tinderforbananas .view--swipelist.overlaid picture {
+  visibility: hidden;
+}
+.tinderforbananas .view--swipelist.overlaid .item__details,
+.tinderforbananas .view--swipelist.overlaid nav {
+  opacity: 0;
+}
+.tinderforbananas .view--swipelist + .view--details section,
+.tinderforbananas .view--swipelist + .view--details nav {
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+}
+.tinderforbananas .view--swipelist.overlaid + .view--details section,
+.tinderforbananas .view--swipelist.overlaid + .view--details nav {
+  -webkit-transform: translateY(50vh);
+          transform: translateY(50vh);
+}
+.tinderforbananas .view--swipelist__controls {
+  margin-top: auto;
+}
+.tinderforbananas .view--swipelist__controls,
+.tinderforbananas .view--details__controls {
+  padding: 1.882vh;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.tinderforbananas .view--details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.tinderforbananas .view--details__controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(0deg, hsla(0, 0%, 100%, 1), hsla(0, 0%, 100%, .5) 70%, hsla(0, 0%, 100%, 0));
+}
+.tinderforbananas .control {
+  border-radius: 50%;
+  background-color: hsla(0, 0%, 100%, 1);
+  box-shadow: 0 4px 4px hsla(0, 0%, 0%, .05);
+  border: 0;
+  padding: 0;
+}
+.tinderforbananas .control svg {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  /* Fallback for Safari */
+  stroke-width: 8px;
+  stroke-width: 0.941vh;
+  stroke-linejoin: round;
+}
+.tinderforbananas .control--big {
+  width: 11.294vh;
+  height: 11.294vh;
+}
+.tinderforbananas .control--small {
+  width: 7.529vh;
+  height: 7.529vh;
+}
+.tinderforbananas .control--nope svg {
+  stroke: hsla(10, 100%, 60%, 1);
+  fill: hsla(10, 100%, 60%, 1);
+}
+.tinderforbananas .control--like svg {
+  stroke: hsla(170, 100%, 45%, 1);
+  fill: hsla(170, 100%, 45%, 1);
+}
+.tinderforbananas .control--superlike svg {
+  stroke: hsla(200, 100%, 50%, 1);
+  fill: hsla(200, 100%, 50%, 1);
+}
+.tinderforbananas .control--undo svg {
+  stroke: hsla(45, 100%, 50%, 1);
+  fill: hsla(45, 100%, 50%, 1);
+}
+.tinderforbananas .control--inverted svg {
+  stroke: hsla(0, 0%, 100%, 1);
+  fill: hsla(0, 0%, 100%, 1);
+}
+.tinderforbananas .control--inverted.control--like {
+  background-color: hsla(170, 100%, 45%, 1);
+}
+.tinderforbananas .control--inverted.control--nope {
+  background-color: hsla(10, 100%, 60%, 1);
+}
+.tinderforbananas .control--inverted.control--superlike {
+  background-color: hsla(200, 100%, 50%, 1);
+}
+tinderforbananas-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+
+  -webkit-box-flex: 1;
+
+      -ms-flex-positive: 1;
+
+          flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tinderforbananas .item__details__name {
+  font-weight: 700;
+}
+.tinderforbananas .item__details__age {
+  margin-left: 0.2em;
+}
+.tinderforbananas .item__details__job,
+.tinderforbananas .item__details__distance {
+  font-size: 0.7em;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.tinderforbananas .item__details__distance {
+  color: hsla(0, 0%, 0%, .34);
+}
+.tinderforbananas .view--details .description,
+.tinderforbananas .view--details .item__details {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+.tinderforbananas .view--details .description {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-top: 1px solid hsla(0, 0%, 0%, .34);
+  font-size: 0.7em;
+  padding: 1.882vh;
+  padding-bottom: 15.058vh
+}
+tinderforbananas-carousel {
+  position: relative;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  overflow: hidden;
+}
+tinderforbananas-carousel:before {
+  content: '';
+  width: 100%;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  padding-bottom: 100%;
+}
+tinderforbananas-carousel .carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}

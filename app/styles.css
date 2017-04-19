@@ -151,6 +151,7 @@ body {
   transform-origin: 50% 50%;
   will-change: opacity;
   opacity: 0;
+  user-select: none;
 }
 .tinderforbananas .view--swipelist .item .action--nope {
   right: calc(var(--app__action__offset) * 100vh);
@@ -179,11 +180,11 @@ body {
 .tinderforbananas .view--swipelist .item__details,
 .tinderforbananas .view--swipelist nav {
   opacity: 1;
-  transition: opacity 0.15s ease-in-out; 
+  transition: opacity 0.15s ease-in-out;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;  
+          user-select: none;
 }
 .tinderforbananas .view--swipelist.overlaid picture {
   visibility: hidden;
